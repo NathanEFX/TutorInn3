@@ -19,7 +19,11 @@
       <br><br>
         <center>
           
-          <img src="{{ asset('Element/profile Icon.png') }}" class="pp">
+        @if(Auth::user()->profilePicture)
+        <img src="{{ Auth::user()->profilePicture }}" class="rounded-circle w-50">
+        @else
+        <img src="{{ asset('Element/profile Icon.png') }}" class="rounded-circle w-50">
+        @endif
 
         </center>
         
