@@ -39,11 +39,23 @@ class ProfileController extends Controller
 
         $user = Auth::user()->load('phones');
         if ($request->hasFile('profilePicture')) {
-            $cloudinaryImage = $request->file('profilePicture')->storeOnCloudinary('profilePicture');
-            $url = $cloudinaryImage->getSecurePath();
+            $file = $request->file('profilePicture');
+            $cloudinary = new Cloudinary([
+            'cloud' => [
+                'cloud_name' => env('dl1esov56'),
+                'api_key'    => env('943422931148876'),
+                'api_secret' => env('ES486ZUxucrKWTEKctl_QftApbE'),
+                ]
+            ]);
 
             // Save the file path in the database
-            $user->profilePicture = $url;
+            $uploadResult = $cloudinary->uploadApi()->upload($file->getRealPath(), [
+                'folder' => 'profilePicture',
+            ]);
+
+            // Save the Cloudinary URL to the user's profile_picture column
+            $user->profilePicture = $uploadResult['secure_url'];
+            $user->save();
         }
 
         $user->update($request->only('name', 'email', 'age', 'phone')); // Add other fields as needed
