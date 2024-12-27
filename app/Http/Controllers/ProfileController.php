@@ -39,7 +39,7 @@ class ProfileController extends Controller
 
         $user = Auth::user()->load('phones');
         if ($request->hasFile('profilePicture')) {
-            $cloudinaryImage = $request->file('image')->storeOnCloudinary('profilePicture');
+            $cloudinaryImage = $request->file('profilePicture')->storeOnCloudinary('profilePicture');
             $url = $cloudinaryImage->getSecurePath();
 
             // Save the file path in the database
