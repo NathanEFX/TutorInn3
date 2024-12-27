@@ -25,7 +25,7 @@
         <form action="{{ route('update.update') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <center>@if(Auth::user()->profilePicture)
-        <img src="{{ asset('Auth::user()->profilePicture') }}" class="rounded-circle w-50">
+        <img src="{{ Auth::user()->profilePicture }}" class="rounded-circle w-50">
         @else
         <img src="{{ asset('Element/profile Icon.png') }}" class="rounded-circle w-50">
         @endif</center>
