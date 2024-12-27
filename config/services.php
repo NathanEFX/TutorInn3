@@ -35,4 +35,10 @@ return [
         ],
     ],
 
+    'cloudinary' => [
+        'cloud_name' => env('dl1esov56'),
+        'api_key' => env('943422931148876'),
+        'api_secret' => env('ES486ZUxucrKWTEKctl_QftApbE'),
+    ],
+
 ];
