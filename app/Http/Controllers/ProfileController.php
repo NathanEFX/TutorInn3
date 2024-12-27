@@ -40,7 +40,7 @@ class ProfileController extends Controller
         $user = Auth::user()->load('phones');
         if ($request->hasFile('profilePicture')) {
             $file = $request->file('profilePicture');
-            $cloudinary = new Cloudinary(['cloud' => ['cloud_name' => env('dl1esov56'), 'api_key'    => env('943422931148876'), 'api_secret' => env('ES486ZUxucrKWTEKctl_QftApbE')]]);
+            $cloudinary = new Cloudinary(['cloud' => ['cloud_name' => env('dl1esov56'), 'api_key' => env('943422931148876'), 'api_secret' => env('ES486ZUxucrKWTEKctl_QftApbE')]]);
 
             // Save the file path in the database
             $uploadResult = $cloudinary->uploadApi()->upload($file->getRealPath(), [
