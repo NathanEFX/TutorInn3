@@ -27,6 +27,8 @@ class LoginController extends Controller
         if ($mahasiswa && Hash::check($credentials['password'], $mahasiswa->password)) {
             Auth::guard('web')->login($mahasiswa);
             $request->session()->regenerate();
+
+            dd(Auth::user()); 
     
             return redirect()->intended('/homepage');
         } else {
