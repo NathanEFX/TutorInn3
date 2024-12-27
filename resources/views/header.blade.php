@@ -22,14 +22,9 @@
     <div class="container-fluid p-3 position-fixed w-100" style="top: 5%; z-index: 100;">
         <div class="d-flex align-items-center justify-content-between">
             <!-- Circle Header -->
-        
-            @if(Auth::user()->profilePicture)
-            <img src="{{ Auth::user()->profilePicture }}" class="rounded-circle shadow-lg" 
+            <img src="{{ asset("/Element/EllipseHeader.png") }}" class="rounded-circle shadow-lg" 
                  style="width: 14vw; height: 14vw; position: absolute; top: -2vw; left: 4%; z-index: -1;">
-            @else
-            <img src="{{ asset('Element/profile Icon.png') }}" class="rounded-circle shadow-lg" 
-                 style="width: 14vw; height: 14vw; position: absolute; top: -2vw; left: 4%; z-index: -1;">
-            @endif
+            
             <!-- Header Box -->
             <div class="headerBox d-flex align-items-center" 
                  style="background-color: #e5cfbc; border-radius: 10px; position: relative; z-index: 1; width: 95%; margin-left: 4%; margin-top: 1%;">
@@ -50,10 +45,18 @@
 
                
                 <div class="dropdown" style="margin-right: 2%;">
+                    @if(Auth::user()->profilePicture)
+                    <img src="{{ Auth::user()->profilePicture }}" 
+                         class="rounded-circle shadow-sm dropdown-toggle" 
+                         style="width: 3.5vw; height: 3.5vw; cursor: pointer;" 
+                         id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    @else
                     <img src="{{ asset('/Element/profile Icon.png') }}" 
                          class="rounded-circle shadow-sm dropdown-toggle" 
                          style="width: 3.5vw; height: 3.5vw; cursor: pointer;" 
                          id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    @endif
+                    
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton" style="background-color: #e5cfbc;">
                         <li><a class="dropdown-item text-dark fw-bold" href="/profile" style="color: #5a3921;">View Account</a></li>
                         <!-- <li><a class="dropdown-item text-dark fw-bold" href="/homepageTutor" style="color: #5a3921;">Switch User</a></li> -->
