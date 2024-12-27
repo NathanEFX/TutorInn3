@@ -58,5 +58,6 @@ Route::get('/scheduleList', [ScheduleController::class, 'scheduleList'])->name('
 Route::get('/viewSchedule/{id}', [ScheduleController::class, 'viewSchedule'])->name('viewSchedule');
 
 Route::get('/homepage', function(){
+    dd(Auth::check());
     return view('homepage');
 })->name('homepage');
