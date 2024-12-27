@@ -17,7 +17,15 @@
     <div class="containerBox">
       <div class="box">
       <br><br>
-        <center><img src="{{ Auth::check() && Auth::user()->profilePicture ? asset(Auth::user()->profilePicture) : asset('/Element/profile Icon.png') }}" class="pp"></center>
+        <center>
+          @if(Auth::check() && Auth::user()->profilePicture)
+        <!-- Display Cloudinary Image if exists -->
+          <img src="{{ \CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary::secureShow(Auth::user()->profilePicture) }}" class="pp">
+          @else
+        <!-- Display fallback image if no profile picture is found -->
+          <img src="{{ asset('Element/profile Icon.png') }}" class="pp">
+          @endif
+        </center>
         
         <br><br><br>
             <div class="boxProfile">
