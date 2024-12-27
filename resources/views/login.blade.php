@@ -133,10 +133,19 @@
           <h1 class="loginPLS">Login</h1>
           <div class="input">
             <center>
-              @if(session('messages'))
+<!--               @if(session('messages'))
                 @foreach(session('messages') as $message)
                   <h3 style="color: red">{{ $message }}</h3>
                 @endforeach
+              @endif -->
+              @if($errors->any())
+                  <div class="alert alert-danger">
+                      <ul>
+                          @foreach($errors->all() as $error)
+                              <li>{{ $error }}</li>
+                          @endforeach
+                      </ul>
+                  </div>
               @endif
             </center>
             <form action="/login" method="POST">
