@@ -9,7 +9,6 @@
 </head>
 <body style="background-color: #FFFBE9;">
 
-@if (Auth::check())
     @include('header')
 
     <br><br><br>
