@@ -44,10 +44,9 @@ class ProfileController extends Controller
 
             // Save the file path in the database
             $user->profilePicture = $url;
-            $user->save();
         }
 
-        $user->update($request->only('name', 'email', 'age', 'phone', 'profilePicture')); // Add other fields as needed
+        $user->update($request->only('name', 'email', 'age', 'phone')); // Add other fields as needed
 
         return redirect()->route('update.update')->with('success', 'Profile updated successfully.');
     }
