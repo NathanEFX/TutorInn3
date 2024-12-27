@@ -84,6 +84,6 @@
         }
     </script>
     @include('footer')
-@endif
+
 </body>
 </html>
