@@ -17,7 +17,7 @@
     <div class="containerBox">
       <div class="box">
       <br><br>
-        <center><img src="{{ Auth::check() && Auth::user()->profilePicture ? asset(Auth::user()->profilePicture) : asset('/Element/profile Icon.png') }}" class="pp"></center>
+        <center><img src="{{ Auth::check() && Auth::user()->profilePicture ? asset('/Element/profile Icon.png') }}" class="pp"></center>
         
         <br><br><br>
             <div class="boxProfile">
