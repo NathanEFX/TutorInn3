@@ -57,12 +57,6 @@ Route::get('/scheduleList', [ScheduleController::class, 'scheduleList'])->name('
 
 Route::get('/viewSchedule/{id}', [ScheduleController::class, 'viewSchedule'])->name('viewSchedule');
 
-Route::get('/homepage', function () {
-    if (Auth::check()) {
-        // If user is authenticated, return the homepage view with user data
-        return view('homepage', ['user' => Auth::user()]);
-    } else {
-        // If user is not authenticated, redirect them to login page
-        return redirect()->route('login');
-    }
+Route::get('/homepage', function(){
+    return view('homepage');
 })->name('homepage');
