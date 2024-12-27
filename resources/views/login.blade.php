@@ -138,14 +138,17 @@
                   <h3 style="color: red">{{ $message }}</h3>
                 @endforeach
               @endif -->
-              @if($errors->any())
-                  <div class="alert alert-danger">
-                      <ul>
-                          @foreach($errors->all() as $error)
+              @if ($errors->any())
+              <div class="d-flex justify-content-center mt-4">
+                  <div class="alert alert-danger alert-dismissible fade show" role="alert" style="max-width: 500px;">
+                      <ul class="mb-0">
+                          @foreach ($errors->all() as $error)
                               <li>{{ $error }}</li>
                           @endforeach
                       </ul>
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                   </div>
+              </div>
               @endif
             </center>
             <form action="/login" method="POST">
